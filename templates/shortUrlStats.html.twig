@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block container %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Created At</th>
+            <th scope="col">User Agent</th>
+            <th scope="col">IP</th>
+        </tr>
+        </thead>
+        {% for stat in stats %}
+            <tr>
+                <td>
+                    {{ stat.created }}
+                </td>
+                <td>
+                    {{ stat.userAgent }}
+                </td>
+                <td>
+                    {{ stat.ip }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

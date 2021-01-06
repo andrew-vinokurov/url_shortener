@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block container %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Short URL</th>
+            <th scope="col">URL</th>
+            <th scope="col">Expire At</th>
+            <th scope="col">Created At</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        {% for key in urls %}
+            <tr>
+                <td>
+                    <a href="http://{{ domain }}/{{ key.hashUrl }}" target="_blank">{{ key.hashUrl }}</a>
+                </td>
+                <td>
+                    {{ key.url }}
+                </td>
+                <td>
+                    {{ key.expireAt|date('Y-m-d H:i:s') }}
+                </td>
+                <td>
+                    {{ key.createdAt|date('Y-m-d H:i:s') }}
+                </td>
+                <td>
+                    <a href="{{ url('shortUrlStats', {'hashUrl': key.hashUrl}) }}" target="_blank">Show stats</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

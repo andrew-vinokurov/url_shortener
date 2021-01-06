@@ -1,0 +1,16 @@
+shortUrlCreate:
+  path:     /
+  host:     '%base_domain%'
+  defaults: { _controller: App\Controller\ShortUrlController:createAction }
+shortUrlList:
+  path:     list
+  host:     '%base_domain%'
+  defaults: { _controller: App\Controller\ShortUrlController:listAction }
+shortUrlStats:
+  path:     stats/{hashUrl}
+  host:     '%base_domain%'
+  defaults: { _controller: App\Controller\ShortUrlController:statsAction }
+redirectFromShortURL:
+  path:     /{hashUrl}
+  host:     "%short_url_domain%"
+  defaults: { _controller: App\Controller\ShortUrlController:redirectFromShortURLAction }
